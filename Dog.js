@@ -1,12 +1,7 @@
-// Create the Dog class here
+ 
 class Dog {
-    constructor(obj) {
-        this.name = obj.name
-        this.avatar = obj.avatar
-        this.age = obj.age
-        this.bio = obj.bio
-        this.hasBeenSwiped = obj.hasBeenSwiped
-        this.hasBeenLiked = obj.hasBeenLiked
+    constructor(data) {
+        Object.assign(this, data)
     }
     getName() {
         console.log(this.name)

@@ -2,6 +2,9 @@
 import { dogs } from "./data.js"
 import { Dog } from "./Dog.js"
 
-const Bella = new Dog(dogs[1])
+let dogsArray = ["Rex","Bella","Teddy"]
 
-console.log(Bella.getName())
+const getNewdog = () => {
+    const nextDogData = dogs[dogsArray.shift()]
+    return new Dog(nextDogData)
+}
