@@ -3,7 +3,7 @@ const dogs = [
     {
         elementId: uuidv4(),
         name: "Rex",
-        avatar: "./public/dog-rex.jpg",
+        avatar: "/dog-rex.jpg",
         age: 25,
         bio: "Art. Literature. Natural wine. Yoga.",
         hasBeenSwiped: false,
