@@ -12,7 +12,7 @@ const dogs = [
     {
         elementId: uuidv4(),
         name: "Bella",
-        avatar: "public/dog-bella.jpg",
+        avatar: "/dog-bella.jpg",
         age: 43,
         bio: "Yup, that's my owner. U can meet him if you want",
         hasBeenSwiped: false,
@@ -21,7 +21,7 @@ const dogs = [
     {
         elementId: uuidv4(),
         name: "Teddy",
-        avatar: "public/dog-teddy.jpg",
+        avatar: "/dog-teddy.jpg",
         age: 30,
         bio: "How you doin?",
         hasBeenSwiped: false,
