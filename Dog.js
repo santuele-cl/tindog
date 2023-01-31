@@ -7,7 +7,7 @@ class Dog {
         const { name,avatar, age, bio } = this
         let dogHTML = `
             <div class="post-img" id="post-img">
-                <img class="dog-img" src="${avatar}" alt="${name} avatar">
+                <img class="dog-img" src=${avatar} alt="${name} avatar">
             </div>
             <div class="post-stamp" id="post-stamp">
                 ${this.getStampHtml()}
@@ -26,7 +26,7 @@ class Dog {
             stampHtml = `
                 <img 
                     class="stamp-img" 
-                    src="images/badge-like.png" 
+                    src="./images/badge-like.png" 
                     alt="liked stamp"
                 >
             `
@@ -34,7 +34,7 @@ class Dog {
             stampHtml = `
                 <img 
                     class="stamp-img" 
-                    src="images/badge-nope.png" 
+                    src="./images/badge-nope.png" 
                     alt="liked stamp"
                 >
             `

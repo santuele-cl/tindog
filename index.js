@@ -1,4 +1,3 @@
-// Remember to import the data and Dog class!
 import { dogs } from "./data.js"
 import { Dog } from "./Dog.js"
 
@@ -8,11 +7,12 @@ const dislikeBtn = document.getElementById('dislike-btn')
 
 let disableBtnBool = false
 
-
-// This program will loope through this dogs array
+// This program will loop through this dogs array
 let dogsArray = ["Rex","Bella","Teddy"]
 
 document.addEventListener('click', (event) => {
+
+    // Check if the target element are the buttons or their child
     if(event.target.id === 'like-btn' || event.target.parentElement.id === 'like-btn') {
         handleLikeBtnClick()
     } else if (event.target.id === 'dislike-btn' || event.target.parentElement.id === 'dislike-btn') {
