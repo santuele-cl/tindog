@@ -26,7 +26,7 @@ class Dog {
             stampHtml = `
                 <img 
                     class="stamp-img" 
-                    src="./images/badge-like.png" 
+                    src="public/badge-like.png" 
                     alt="liked stamp"
                 >
             `
@@ -34,7 +34,7 @@ class Dog {
             stampHtml = `
                 <img 
                     class="stamp-img" 
-                    src="./images/badge-nope.png" 
+                    src="public/badge-nope.png" 
                     alt="liked stamp"
                 >
             `
