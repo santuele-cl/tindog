@@ -24,19 +24,15 @@ class Dog {
         let stampHtml = ``
         if(hasBeenLiked && hasBeenSwiped) {
             stampHtml = `
-                <img 
-                    class="stamp-img" 
-                    src="public/badge-like.png" 
-                    alt="liked stamp"
-                >
+                <img class="stamp-img" 
+                    src="/badge-like.png" 
+                    alt="liked stamp">
             `
         } else if(!hasBeenLiked && hasBeenSwiped) {
             stampHtml = `
-                <img 
-                    class="stamp-img" 
-                    src="public/badge-nope.png" 
-                    alt="liked stamp"
-                >
+                <img class="stamp-img" 
+                    src="/badge-nope.png" 
+                    alt="liked stamp">
             `
         }
         return stampHtml
