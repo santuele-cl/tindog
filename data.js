@@ -1,5 +1,7 @@
+import { v4 as uuidv4 } from 'https://jspm.dev/uuid'
 const dogs = [
     {
+        elementId: uuidv4(),
         name: "Rex",
         avatar: "images/dog-rex.jpg",
         age: 25,
@@ -7,6 +9,7 @@ const dogs = [
         hasBeenSwiped: false,
         hasBeenLiked: false
     },{
+        elementId: uuidv4(),
         name: "Bella",
         avatar: "images/dog-bella.jpg",
         age: 43,
@@ -15,6 +18,7 @@ const dogs = [
         hasBeenLiked: false
     },
     {
+        elementId: uuidv4(),
         name: "Teddy",
         avatar: "images/dog-teddy.jpg",
         age: 30,

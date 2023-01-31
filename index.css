@@ -102,6 +102,15 @@ body {
     height: 24px;
     width: 24px;
 }
+#like-btn:hover,
+#like-btn:active {
+    background-color: var(--light-green);
+}
+
+#dislike-btn:hover,
+#dislike-btn:active {
+    background-color: var(--light-red);
+}
 
 /* Utility classes */
 .bg-light {background-color: var(--white);}
