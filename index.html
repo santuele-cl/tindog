@@ -5,12 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tindog</title>
+
     <!-- Normalize CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/js/all.min.js" integrity="sha512-rpLlll167T5LJHwp0waJCh3ZRf7pO6IT1+LZOhAyP6phAirwchClbTZV3iqL3BMrVxIYRbzGTpli4rfxsCK6Vw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700;900&display=swap" rel="stylesheet">
+
     <!-- Defined style -->
     <link rel="stylesheet" href="index.css">
 </head>
@@ -39,33 +46,23 @@
     </header>
 
     <!-- Post section-->
-    <main class="container bg-light" id="dog-container">
-        
+    <main class="container bg-light">
+        <div class="main" id="post-container">
+
+        </div>
+        <div class="post-buttons">
+            <button class="btn btn-primary" 
+                id="dislike-btn"
+                >
+                    <img class="btn-img" src="./images/icon-cross.png" alt="cross icon">
+            </button>
+            <button class="btn btn-primary" 
+                id="like-btn"
+                >
+                    <img class="btn-img" src="./images/icon-heart.png" alt="heart icon">
+            </button>
+        </div>
     </main>
     <script src="./index.js" type="module"></script>
 </body>
 </html>
-
-
-<!-- 
-
- <main class="container bg-light" id="dog-box">
-        <div class="main" id="main">
-            <div class="post-img">
-                <img src="./images/dog-bella.jpg" alt="">
-            </div>
-            <div class="post-description">
-                <h2 id="dog-name">Bella</h2>
-                <p>How you doin?</p>
-            </div>
-        </div>
-        <div class="post-buttons">
-            <button class="btn btn-primary" id="dislike-btn">
-                <img src="./images/icon-cross.png" alt="cross icon">
-            </button>
-            <button class="btn btn-primary" id="like-btn">
-                <img src="./images/icon-heart.png" alt="heart icon">
-            </button>
-        </div>
-
- -->

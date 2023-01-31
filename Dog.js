@@ -4,50 +4,43 @@ class Dog {
         Object.assign(this, data)
     }
     getDogHTML() {
-        const { elementId,name,avatar, age, bio} = this
+        const { name,avatar, age, bio } = this
         let dogHTML = `
-            <div class="main">
-                <div class="post-img">
-                    <img src="${avatar}" alt="">
-                </div>
-                <div class="post-description">
-                    <h2 id="dog-name">${name}, ${age}</h2>
-                    <p>${bio}</p>
-                </div>
+            <div class="post-img" id="post-img">
+                <img class="dog-img" src="${avatar}" alt="${name} avatar">
             </div>
-            <div class="post-buttons">
-            <button 
-                class="btn btn-primary" 
-                id="dislike-btn"
-                data-id="${elementId}"
-            >
-                    <img src="./images/icon-cross.png" alt="cross icon">
-            </button>
-            <button 
-                class="btn btn-primary" 
-                id="like-btn"
-                data-id="${elementId}"
-            >
-                    <img src="./images/icon-heart.png" alt="heart icon">
-            </button>
-        </div>
+            <div class="post-stamp" id="post-stamp">
+                ${this.getStampHtml()}
+            </div>
+            <div class="post-description">
+                <h2 id="dog-name">${name}, ${age}</h2>
+                <p>${bio}</p>
+            </div>
         `
         return dogHTML
     }
-    renderDogHtml(getDogHTML) {
-        const { elementId } = this
-        document.getElementById(elementId).innerHTML = getDogHTML()
+    getStampHtml() {
+        const { hasBeenLiked, hasBeenSwiped } = this
+        let stampHtml = ``
+        if(hasBeenLiked && hasBeenSwiped) {
+            stampHtml = `
+                <img 
+                    class="stamp-img" 
+                    src="images/badge-like.png" 
+                    alt="liked stamp"
+                >
+            `
+        } else if(!hasBeenLiked && hasBeenSwiped) {
+            stampHtml = `
+                <img 
+                    class="stamp-img" 
+                    src="images/badge-nope.png" 
+                    alt="liked stamp"
+                >
+            `
+        }
+        return stampHtml
     }
-    getLikeStamp() {
-        console.log(this.name)
-    }
-    getDislikeStamp() {
-
-    }
-    getUuid() { return this.elementId }
-    getName() { return this.name }
-    
 }
-
 
 export { Dog }

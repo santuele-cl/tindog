@@ -2,65 +2,87 @@
 import { dogs } from "./data.js"
 import { Dog } from "./Dog.js"
 
+// Save element in a variable for easy access
+const likeBtn = document.getElementById('like-btn')
 const dislikeBtn = document.getElementById('dislike-btn')
-const likeBtn = document.getElementById ('like-btn')
 
+let disableBtnBool = false
+
+
+// This program will loope through this dogs array
 let dogsArray = ["Rex","Bella","Teddy"]
 
 document.addEventListener('click', (event) => {
-
-    if(event.target.dataset.id) {
-        if(event.target.id === 'like-btn') {
-            handleLikeBtnClick(event.target.dataset.id)
-        } else if(event.target.id === 'dislike-btn') {
-            handleDislikeBtnClick(event.target.dataset.id)
-        }
-    } else if (event.target.parentElement.dataset.id) {
-        if(event.target.parentElement.id === 'like-btn') {
-            handleLikeBtnClick(event.target.parentElement.dataset.id)
-        } else if(event.target.parentElement.id === 'dislike-btn') {
-            handleDislikeBtnClick(event.target.parentElement.dataset.id)
-        }
+    if(event.target.id === 'like-btn' || event.target.parentElement.id === 'like-btn') {
+        handleLikeBtnClick()
+    } else if (event.target.id === 'dislike-btn' || event.target.parentElement.id === 'dislike-btn') {
+        handleDislikeBtnClick()
     }
-
 }) 
 
-const handleLikeBtnClick = (id) => {
-    // console.log(`${id} hasBeenSwiped = true`)
-    // console.log(`you have liked ${id}`)
-    // console.log(`${id} hasBeenLike = true`)
-    // console.log("adding liked stamp")
-    // console.log("displaying new dog in 3 secons")
-    // console.log("getNewDog()")
-    // console.log("renderNewDog()")
-    dog = getNewDog()
-    renderDogHtml(dog)
-    // setTimeout(()=> {
-    //     console.log("getNewDog()")
-    //     console.log("renderNewDog()")
-    //     dog = getNewDog()
-    // }, 3000)
+const toggleBtn = () => {
+    // Toggle  buttons on/off after interaction
+    disableBtnBool = !disableBtnBool
+    likeBtn.disabled = disableBtnBool
+    dislikeBtn.disabled = disableBtnBool
 }
 
-const handleDislikeBtnClick = (id) => {
-    // console.log(`${id} hasBeenSwiped = true`)
-    // console.log(`you have disliked ${id}`)
-    // console.log("adding disliked stamp")
-    // console.log("displaying new dog in 3 secons")
-    // console.log("getNewDog()")
-    // console.log("renderNewDog()")
-    dog = getNewDog()
-    renderDogHtml(dog)
-    // setTimeout(()=> {
-    //     console.log("getNewDog()")
-    //     console.log("renderNewDog()")
-    //     dog = getNewDog()
-    //     renderDogHtml(dog())
-    // }, 3000)
+const handleLikeBtnClick = () => {
+
+    // Set hasBeenSwiped to true if user like/dislike the pic
+    dog.hasBeenSwiped = true
+
+    // Toggle the hasBeenLiked boolean
+    // dog.hasBeenLiked = dog.hasBeenLiked ? false : true
+    dog.hasBeenLiked = true
+    
+    // Re-render Dog html after interaction 
+    renderDogHtml()
+    likeBtn.classList.toggle('liked')
+
+    // Toggle off buttons after liking
+    toggleBtn()
+
+    // Generate new dog image after 1.5secs
+    setTimeout(() => {
+        dog = getNewDog()
+        renderDogHtml(dog)
+        likeBtn.classList.toggle('liked')
+
+        // Toggle on buttons getting new Dog obj
+        toggleBtn()
+    },2000)
+
 }
 
-const renderDogHtml = (dog) => {
-    document.getElementById('dog-container').innerHTML = dog.getDogHTML()
+const handleDislikeBtnClick = () => {
+   
+    // Set hasBeenSwiped to true if user like/dislike the pic
+    dog.hasBeenSwiped = true
+
+    // Toggle the hasBeenLiked boolean
+    dog.hasBeenLiked = false
+
+    // Re-render Dog html after interaction 
+    renderDogHtml()
+    dislikeBtn.classList.toggle('disliked')
+
+    // Disable buttons after liking / disliking
+    toggleBtn()
+
+    // Generate new dog image after 1.5secs
+    setTimeout(() => {
+        dog = getNewDog()
+        renderDogHtml(dog)
+        dislikeBtn.classList.toggle('disliked')
+
+        // Toggle on buttons getting new Dog obj
+        toggleBtn()
+    },2000)
+}
+
+const renderDogHtml = () => {
+    document.getElementById('post-container').innerHTML = dog.getDogHTML()
 }
 
 function getDogData(dogsDataArr, dogName) {
@@ -70,14 +92,23 @@ function getDogData(dogsDataArr, dogName) {
     return data
 }
 
-
 const getNewDog = () => {
     if(!dogsArray.length > 0)  {
-        dogsArray = ["Rex","Bella","Teddy"]
-    } 
-    const dogName = dogsArray.shift()
+        dislikeBtn.classList.remove('disliked')
+        likeBtn.classList.remove('liked')
 
-    return new Dog(getDogData(dogs,dogName))
+        const postContainer = document.getElementById('post-container')
+        postContainer.innerHTML = `
+            <div class="empty">
+                <i class="fa-regular fa-hourglass"></i>
+                <p>Empty feed.</p>
+                <p> Refresh to load.</p>
+            </div>
+        `
+    } else {
+        return new Dog(getDogData(dogs,dogsArray.shift()))
+    }
+    
 }
 
 let dog = getNewDog()
